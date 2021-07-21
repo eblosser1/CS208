@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Show letter grade</title>
+	<script>
+		var entry;
+		var letterGrade;
+		var total = 0; 
+		var entryCount = 0; 
+		var errorString = "Entry must by a valid number from 0 through 100\nOr enter 999 to end entries";
+
+		do {
+   			entry = prompt("Enter number grade from 0 through 100\nOr enter 999 to end entries", 999);//display user prompt
+
+ 		   	if(isNaN(entry)){  // verify entry is valid
+	        alert(errorString);  //show error if not valid
+    		}else{
+    			entry = parseInt(entry); // user input
+			if (entry >= 0 && entry <= 100) {//convert to letter grades
+           		if (entry < 60) {
+					letterGrade = "F";
+				}else
+           		if (entry < 70) {
+               		letterGrade = "D";
+           		}else
+           		if (entry < 80) {
+               		letterGrade = "C";
+           		}else
+           		if (entry < 90) {
+               		letterGrade = "B";
+           		}else
+           		if (entry <= 100) {
+	               	letterGrade = "A";
+	            }
+ 				total += entry;   // add the total
+	            entryCount += 1;  // add one to count
+	            alert("Number grade = " + entry + "\nLetter grade = " + letterGrade);//conversion display
+
+        	}else // if not in valid range check if its 999
+
+        	if (entry != 999) {
+
+          	 alert(errorString); // display error if entry invalid
+
+        	 }
+
+   		 }
+
+		}while (entry != 999);  // execute till 999 is entered
+
+	</script>
+</head>
+<body>
+	<main>
+    	<h1>Thanks for using Eric Blosser's Grade Conversion Application</h1>
+	</main>
+</body>
+</html>
